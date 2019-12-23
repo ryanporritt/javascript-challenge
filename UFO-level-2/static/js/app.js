@@ -9,6 +9,8 @@ var desiredState = "";
 var desiredCountry = "";
 var desiredShape = "";
 
+Init()
+
 button.on("click", function() {
   desiredDate = d3.select("#datetime").property("value");
   console.log(desiredDate);
@@ -44,6 +46,19 @@ button.on("click", function() {
     });
   });
 });
+function Init()
+{
+  var tbody = d3.select("tbody");
+
+  // Create a table by appending to the tbody element
+  ufo.forEach((element) => {
+    var row = tbody.append("tr");
+    Object.entries(element).forEach(([key, value]) => {
+      var cell = row.append("td");
+      cell.text(value);
+    });
+  });
+}
 
 //filter data functions
 
